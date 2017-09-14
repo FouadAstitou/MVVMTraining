@@ -10,7 +10,7 @@ import Foundation
 
 class StationsListViewModel {
     
-    var stations = [Station]()
+    var stations = [Station]() // Kleine opmerking hierover: Deze "var stations = [Station]()" is ook onderdeel van het protocol daardoor zou ik niet de extension maken die hieronder staat maar de extention verwijderen en de code hierin slepen.
     
 }
 

@@ -37,7 +37,7 @@ struct DataManager {
             (data, response, error) -> Void in
             
             if let data = data {
-                print("DATA: \(data)")
+                print("DATA: \(data)") // Eentje over print. Gebruik debugPrint ipv print. DebugPrint komen niet terug in release builds...prints wel.
                 let result = self.processStations(data: data, error: error as NSError?)
                 // Use Main Que??
                 completion(result)
@@ -48,14 +48,14 @@ struct DataManager {
     
     static func processStations(data: Data?, error: NSError?) -> StationsResult {
         guard let jsonData = data else {
-            print("Error processing stations: \(error)")
+            print("Error processing stations: \(error)") // Eentje over print. Gebruik debugPrint ipv print. DebugPrint komen niet terug in release builds...prints wel.
             return .failure(APIError.errorProcessingStations)
         }
         return self.stationsFromJSONData(jsonData)
     }
     
     static func stationsFromJSONData(_ data: Data) -> StationsResult {
-        
+        // Vind de onderstaande code erg netjes! ondanks me gezeik over die prints
         do {
             let jsonObject: Any = try JSONSerialization.jsonObject(with: data, options: [])
             
@@ -77,13 +77,13 @@ struct DataManager {
                     return .failure(APIError.invalidJSONData)
                 }
                 let station = Station(code: code, name: name, radius: radius, latitude: latitude, longitude: longintude)
-                print("Station: \(station.name)")
+                print("Station: \(station.name)")// Eentje over print. Gebruik debugPrint ipv print. DebugPrint komen niet terug in release builds...prints wel.
                 stations.append(station)
             }
             return .success(stations)
         }
         catch let error {
-            print(error)
+            print(error)// Eentje over print. Gebruik debugPrint ipv print. DebugPrint komen niet terug in release builds...prints wel.
         }
         return .success([])
     }

@@ -14,7 +14,7 @@ class StationsListViewController: UIViewController {
     
     var stationsList: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell") // Cell?? Origineel ;) probeer duidelijke namen te geven ipv cell. Wat voor een cell welke cell? StationsCell of Cell? Welke zie jij liever terug komen?
         return tableView
     }()
     
@@ -33,7 +33,7 @@ class StationsListViewController: UIViewController {
     }
     
     func setUpViews() {
-        // To do: Need to be ocalized
+        // To do: Need to be localized
         title = "Stations"
         view.backgroundColor = .white
         stationsList.dataSource = self
@@ -58,8 +58,9 @@ extension StationsListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = self.stationsListViewModel.stationNameToDisplay(for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) // He weer die Cell??? Misschien moet je iets verzinnen op een String waarde die je 2 keer gebruikt en echt geen typo in mag zitten.
+        
+        cell.textLabel?.text = self.stationsListViewModel.stationNameToDisplay(for: indexPath) // Hier gebruik je cell.textLabel?.text dit betekend als cell.textLabel niet bestaat dat de app klapt. We hebben het maandag over ? en ! gehad toen wist je ook wat je hieraan moest doen. Je weet het dus ook doen ;)
         
         return cell
     }

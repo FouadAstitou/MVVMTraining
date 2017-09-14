@@ -54,7 +54,7 @@ class HomeView: UIView {
     func setUpViews() {
         self.titleLabel.text = self.homeViewModel.titleText
         self.descriptionLabel.text = self.homeViewModel.descriptionText
-        self.connectionStateLabel.text = self.homeViewModel.isConnectedStatus ? "Connected" : "Connecting ..."
+        self.connectionStateLabel.text = self.homeViewModel.isConnectedStatus ? "Connected" : "Connecting ..." // Localize
         
         self.addSubview(titleLabel)
         self.addSubview(descriptionLabel)
