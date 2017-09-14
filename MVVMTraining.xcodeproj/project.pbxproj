@@ -7,21 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4B5ACA01F6A52CE00115700 /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5AC9F1F6A52CE00115700 /* HomeProtocol.swift */; };
+		A4B5ACA21F6A538100115700 /* HomeViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACA11F6A538100115700 /* HomeViewProtocol.swift */; };
+		A4B5ACA41F6A56E200115700 /* StationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACA31F6A56E200115700 /* StationsListViewController.swift */; };
+		A4B5ACA61F6A5C1300115700 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACA51F6A5C1300115700 /* Station.swift */; };
+		A4B5ACA81F6A5D8000115700 /* StationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACA71F6A5D8000115700 /* StationProtocol.swift */; };
+		A4B5ACAA1F6A5F3E00115700 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACA91F6A5F3E00115700 /* DataManager.swift */; };
+		A4B5ACAD1F6A825400115700 /* StationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACAC1F6A825400115700 /* StationViewModel.swift */; };
+		A4B5ACAF1F6A835600115700 /* StationsListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACAE1F6A835600115700 /* StationsListViewProtocol.swift */; };
 		A4FE49AC1F69288B0021E96E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE49AB1F69288B0021E96E /* AppDelegate.swift */; };
 		A4FE49AE1F69288B0021E96E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE49AD1F69288B0021E96E /* ViewController.swift */; };
-		A4FE49B11F69288B0021E96E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FE49AF1F69288B0021E96E /* Main.storyboard */; };
 		A4FE49B31F69288B0021E96E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4FE49B21F69288B0021E96E /* Assets.xcassets */; };
 		A4FE49B61F69288B0021E96E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FE49B41F69288B0021E96E /* LaunchScreen.storyboard */; };
+		A4FE49BE1F692ABE0021E96E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE49BD1F692ABE0021E96E /* Home.swift */; };
+		A4FE49C01F692F540021E96E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE49BF1F692F540021E96E /* HomeView.swift */; };
+		A4FE49C21F6931E00021E96E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE49C11F6931E00021E96E /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4B5AC9F1F6A52CE00115700 /* HomeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
+		A4B5ACA11F6A538100115700 /* HomeViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewProtocol.swift; sourceTree = "<group>"; };
+		A4B5ACA31F6A56E200115700 /* StationsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsListViewController.swift; sourceTree = "<group>"; };
+		A4B5ACA51F6A5C1300115700 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		A4B5ACA71F6A5D8000115700 /* StationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationProtocol.swift; sourceTree = "<group>"; };
+		A4B5ACA91F6A5F3E00115700 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = API/DataManager.swift; sourceTree = "<group>"; };
+		A4B5ACAC1F6A825400115700 /* StationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
+		A4B5ACAE1F6A835600115700 /* StationsListViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsListViewProtocol.swift; sourceTree = "<group>"; };
 		A4FE49A81F69288B0021E96E /* MVVMTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4FE49AB1F69288B0021E96E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4FE49AD1F69288B0021E96E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A4FE49B01F69288B0021E96E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4FE49B21F69288B0021E96E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4FE49B51F69288B0021E96E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4FE49B71F69288B0021E96E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4FE49BD1F692ABE0021E96E /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		A4FE49BF1F692F540021E96E /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A4FE49C11F6931E00021E96E /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +55,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4B5AC981F6A4EAF00115700 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A4FE49AD1F69288B0021E96E /* ViewController.swift */,
+				A4B5ACA31F6A56E200115700 /* StationsListViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A4B5AC991F6A4EC200115700 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4FE49BD1F692ABE0021E96E /* Home.swift */,
+				A4B5AC9F1F6A52CE00115700 /* HomeProtocol.swift */,
+				A4B5ACA51F6A5C1300115700 /* Station.swift */,
+				A4B5ACA71F6A5D8000115700 /* StationProtocol.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A4B5AC9A1F6A4ECD00115700 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A4FE49C11F6931E00021E96E /* HomeViewModel.swift */,
+				A4B5ACA11F6A538100115700 /* HomeViewProtocol.swift */,
+				A4B5ACAC1F6A825400115700 /* StationViewModel.swift */,
+				A4B5ACAE1F6A835600115700 /* StationsListViewProtocol.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		A4B5AC9B1F6A4ED800115700 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4FE49BF1F692F540021E96E /* HomeView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A4B5AC9C1F6A4F2000115700 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A4B5AC991F6A4EC200115700 /* Models */,
+				A4B5AC9D1F6A4F2700115700 /* UI */,
+				A4B5ACAB1F6A5F7B00115700 /* API */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		A4B5AC9D1F6A4F2700115700 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A4B5AC9E1F6A4F3A00115700 /* HomeView */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		A4B5AC9E1F6A4F3A00115700 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				A4B5AC9A1F6A4ECD00115700 /* ViewModels */,
+				A4B5AC9B1F6A4ED800115700 /* Views */,
+				A4B5AC981F6A4EAF00115700 /* Controllers */,
+			);
+			name = HomeView;
+			sourceTree = "<group>";
+		};
+		A4B5ACAB1F6A5F7B00115700 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A4B5ACA91F6A5F3E00115700 /* DataManager.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		A4FE499F1F69288B0021E96E = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +149,8 @@
 		A4FE49AA1F69288B0021E96E /* MVVMTraining */ = {
 			isa = PBXGroup;
 			children = (
+				A4B5AC9C1F6A4F2000115700 /* Sources */,
 				A4FE49AB1F69288B0021E96E /* AppDelegate.swift */,
-				A4FE49AD1F69288B0021E96E /* ViewController.swift */,
-				A4FE49AF1F69288B0021E96E /* Main.storyboard */,
 				A4FE49B21F69288B0021E96E /* Assets.xcassets */,
 				A4FE49B41F69288B0021E96E /* LaunchScreen.storyboard */,
 				A4FE49B71F69288B0021E96E /* Info.plist */,
@@ -126,7 +220,6 @@
 			files = (
 				A4FE49B61F69288B0021E96E /* LaunchScreen.storyboard in Resources */,
 				A4FE49B31F69288B0021E96E /* Assets.xcassets in Resources */,
-				A4FE49B11F69288B0021E96E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,21 +231,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4FE49AE1F69288B0021E96E /* ViewController.swift in Sources */,
+				A4B5ACAF1F6A835600115700 /* StationsListViewProtocol.swift in Sources */,
+				A4B5ACA61F6A5C1300115700 /* Station.swift in Sources */,
+				A4FE49C01F692F540021E96E /* HomeView.swift in Sources */,
+				A4B5ACAD1F6A825400115700 /* StationViewModel.swift in Sources */,
 				A4FE49AC1F69288B0021E96E /* AppDelegate.swift in Sources */,
+				A4B5ACA81F6A5D8000115700 /* StationProtocol.swift in Sources */,
+				A4FE49C21F6931E00021E96E /* HomeViewModel.swift in Sources */,
+				A4B5ACA21F6A538100115700 /* HomeViewProtocol.swift in Sources */,
+				A4B5ACA01F6A52CE00115700 /* HomeProtocol.swift in Sources */,
+				A4B5ACAA1F6A5F3E00115700 /* DataManager.swift in Sources */,
+				A4B5ACA41F6A56E200115700 /* StationsListViewController.swift in Sources */,
+				A4FE49BE1F692ABE0021E96E /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A4FE49AF1F69288B0021E96E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A4FE49B01F69288B0021E96E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A4FE49B41F69288B0021E96E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -300,6 +396,7 @@
 				A4FE49BC1F69288B0021E96E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

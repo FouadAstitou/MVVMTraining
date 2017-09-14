@@ -9,17 +9,40 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    private let homeView = HomeView()
+    
+    var stationsButtonItem = UIBarButtonItem()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        setUpViews()
+        setUpConstraints()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func setUpViews() {
+        // Todo: Needs localization
+        title = "Home"
+        view.backgroundColor = .white
+        self.stationsButtonItem = UIBarButtonItem(title: "Stations", style: .plain, target: self, action: #selector(navigateToStationsListVC))
+        self.navigationItem.rightBarButtonItem = self.stationsButtonItem
+        view.addSubview(self.homeView)
     }
-
-
+    
+    private func setUpConstraints() {
+        let margins = view.layoutMarginsGuide
+        
+        self.homeView.translatesAutoresizingMaskIntoConstraints = false
+        self.homeView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        self.homeView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        self.homeView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        self.homeView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -20).isActive = true
+    }
+    
+    func navigateToStationsListVC() {
+        print("Detected Tap")
+        let stationsListVC = StationsListViewController()
+        self.navigationController?.pushViewController(stationsListVC, animated: true)
+    }
 }
 
