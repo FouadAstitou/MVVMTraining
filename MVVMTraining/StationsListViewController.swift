@@ -10,9 +10,8 @@ import UIKit
 
 class StationsListViewController: UIViewController {
     
-    var stationsListViewModel = StationsListViewModel()
     let stationsListCellIdentifier = "StationsCell"
-    //var searchIsActive = false
+    let stationsListViewModel = StationsListViewModel()
     
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -22,10 +21,18 @@ class StationsListViewController: UIViewController {
         return searchBar
     }()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshStationsList), for: .valueChanged)
+        return refreshControl
+    }()
+    
     // Ask Ricardo if ther are any objections to using lazy here.
     lazy var stationsList: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.delegate = self
+        tableView.addSubview(self.refreshControl)
         return tableView
     }()
     
@@ -62,8 +69,16 @@ class StationsListViewController: UIViewController {
         self.stationsList.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
         self.stationsList.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -20).isActive = true
     }
+    
+    @objc private func refreshStationsList() {
+        self.stationsListViewModel.fetchStations {
+            self.stationsList.reloadData()
+            self.refreshControl.endRefreshing()
+        }
+    }
 }
 
+// MARK: - Table view data source methods.
 extension StationsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.stationsListViewModel.numberOfItemsToDisplay(in: section)
@@ -79,23 +94,32 @@ extension StationsListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Table view delegate source methods.
+extension StationsListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else {
+            return
+        }
+        self.stationsListViewModel.stations.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .right)
+    }
+}
+
+// MARK: - Searchbar delegate methods.
 extension StationsListViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.stationsListViewModel.searchIsActive = true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterContentFor(searchText)
+    }
+    
+    func filterContentFor(_ searchText: String) {
         let stations = self.stationsListViewModel.stations
         self.stationsListViewModel.filteredStations = stations.filter({ (station: Station) -> Bool in
             return station.name.lowercased().range(of: searchText.lowercased()) != nil
         })
-        if !searchText.isEmptyAndContainsNoWhitespace() {
-            self.stationsListViewModel.searchIsActive = true
-            self.stationsList.reloadData()
-        } else {
-            self.stationsListViewModel.filteredStations.removeAll()
-            self.stationsListViewModel.searchIsActive = false
-            self.stationsList.reloadData()
-        }
+        self.stationsList.reloadData()
     }
 }

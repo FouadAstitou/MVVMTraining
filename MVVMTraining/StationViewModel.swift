@@ -37,10 +37,7 @@ class StationsListViewModel: StationsListViewProtocol {
     
     func stationNameToDisplay(for indexPath: IndexPath) -> String {
         let stationName = self.stations[indexPath.row].name
-        var filteredStationName = ""
-        if self.filteredStations.count > 0 {
-            filteredStationName  = self.filteredStations[indexPath.row].name
-        }
+        let filteredStationName = self.filteredStations.count > 0 ? self.filteredStations[indexPath.row].name : ""
         return searchIsActive ? filteredStationName : stationName
     }
 }
