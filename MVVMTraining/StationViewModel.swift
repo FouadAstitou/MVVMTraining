@@ -12,6 +12,7 @@ class StationsListViewModel: StationsListViewProtocol {
     
     var stations = [Station]()
     var filteredStations = [Station]()
+    var searchIsActive = false
     
     func fetchStations(completion: @escaping () -> Void) {
         self.stations.removeAll()
@@ -30,18 +31,17 @@ class StationsListViewModel: StationsListViewProtocol {
         }
     }
     
-    func numberOfItemsToDisplay(in section: Int, searchIsActive: Bool) -> Int {
-        if searchIsActive {
-            return self.filteredStations.count
-        } else {
-            return self.stations.count
-        }
+    func numberOfItemsToDisplay(in section: Int) -> Int {
+        return searchIsActive ? self.filteredStations.count : self.stations.count
     }
     
     func stationNameToDisplay(for indexPath: IndexPath) -> String {
-        let station = self.stations[indexPath.row]
-        let stationName = station.name
-        return stationName
+        let stationName = self.stations[indexPath.row].name
+        var filteredStationName = ""
+        if self.filteredStations.count > 0 {
+            filteredStationName  = self.filteredStations[indexPath.row].name
+        }
+        return searchIsActive ? filteredStationName : stationName
     }
 }
 

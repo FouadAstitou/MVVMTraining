@@ -37,7 +37,7 @@ struct DataManager {
             (data, response, error) -> Void in
             
             if let data = data {
-                print("DATA: \(data)") // Eentje over print. Gebruik debugPrint ipv print. DebugPrint komen niet terug in release builds...prints wel.
+                debugPrint("DATA: \(data)")
                 let result = self.processStations(data: data, error: error as NSError?)
                 // Use Main Que??
                 completion(result)
@@ -48,7 +48,7 @@ struct DataManager {
     
     static func processStations(data: Data?, error: NSError?) -> StationsResult {
         guard let jsonData = data else {
-            print("Error processing stations: \(error)") // Eentje over print. Gebruik debugPrint ipv print. DebugPrint komen niet terug in release builds...prints wel.
+            debugPrint("Error processing stations: \(error)")
             return .failure(APIError.errorProcessingStations)
         }
         return self.stationsFromJSONData(jsonData)
@@ -77,13 +77,13 @@ struct DataManager {
                     return .failure(APIError.invalidJSONData)
                 }
                 let station = Station(code: code, name: name, radius: radius, latitude: latitude, longitude: longintude)
-                print("Station: \(station.name)")// Eentje over print. Gebruik debugPrint ipv print. DebugPrint komen niet terug in release builds...prints wel.
+                debugPrint("Station: \(station.name)")
                 stations.append(station)
             }
             return .success(stations)
         }
         catch let error {
-            print(error)// Eentje over print. Gebruik debugPrint ipv print. DebugPrint komen niet terug in release builds...prints wel.
+            debugPrint(error)
         }
         return .success([])
     }

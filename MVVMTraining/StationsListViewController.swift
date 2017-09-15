@@ -12,7 +12,7 @@ class StationsListViewController: UIViewController {
     
     var stationsListViewModel = StationsListViewModel()
     let stationsListCellIdentifier = "StationsCell"
-    var searchIsActive = false
+    //var searchIsActive = false
     
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -66,7 +66,7 @@ class StationsListViewController: UIViewController {
 
 extension StationsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.stationsListViewModel.numberOfItemsToDisplay(in: section, searchIsActive: self.searchIsActive)
+        return self.stationsListViewModel.numberOfItemsToDisplay(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,26 +81,21 @@ extension StationsListViewController: UITableViewDataSource {
 
 extension StationsListViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.searchIsActive = true
+        self.stationsListViewModel.searchIsActive = true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let stations = self.stationsListViewModel.stations
         self.stationsListViewModel.filteredStations = stations.filter({ (station: Station) -> Bool in
-            return station.name.contains(searchText.lowercased())
+            return station.name.lowercased().range(of: searchText.lowercased()) != nil
         })
         if !searchText.isEmptyAndContainsNoWhitespace() {
-            self.searchIsActive = true
+            self.stationsListViewModel.searchIsActive = true
             self.stationsList.reloadData()
         } else {
             self.stationsListViewModel.filteredStations.removeAll()
-            self.searchIsActive = false
+            self.stationsListViewModel.searchIsActive = false
             self.stationsList.reloadData()
         }
-        
-        print(stationsListViewModel.stations.count)
-        print(stations.count)
-        print(stationsListViewModel.filteredStations.count)
-
     }
 }
