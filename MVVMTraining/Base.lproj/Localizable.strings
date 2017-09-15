@@ -13,3 +13,6 @@
 
 // Stationslist screen.
 "StationsListScreen_SearchStation" = "Search for a trainstation";
+"StationsListScreen_Alert_Title" = "Edit Name";
+"StationsListScreen_Save_Title" = "Save";
+"StationsListScreen_Cancel_Title" = "Cancel";

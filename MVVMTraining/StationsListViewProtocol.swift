@@ -17,4 +17,5 @@ protocol StationsListViewProtocol {
     func fetchStations(completion: @escaping () -> Void)
     func numberOfItemsToDisplay(in section: Int) -> Int
     func stationNameToDisplay(for indexPath: IndexPath) -> String
+    func updateStation(name: String, at indexPath: IndexPath)
 }

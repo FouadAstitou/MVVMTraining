@@ -40,6 +40,10 @@ class StationsListViewModel: StationsListViewProtocol {
         let filteredStationName = self.filteredStations.count > 0 ? self.filteredStations[indexPath.row].name : ""
         return searchIsActive ? filteredStationName : stationName
     }
+    
+    func updateStation(name: String, at indexPath: IndexPath) {
+        self.stations[indexPath.row].name = name
+    }
 }
 
 

@@ -6,6 +6,12 @@
 //  Copyright © 2017 Nerdvana. All rights reserved.
 //
 
+enum LocalizedAlert: String {
+    case alertTitle = "StationsListScreen_Alert_Title"
+    case saveAction = "StationsListScreen_Save_Title"
+    case cancelAction = "StationsListScreen_Cancel_Title"
+}
+
 import UIKit
 
 class StationsListViewController: UIViewController {
@@ -36,6 +42,12 @@ class StationsListViewController: UIViewController {
         return tableView
     }()
     
+    lazy var editCellNameTextField: UITextField = {
+        let textField = UITextField()
+        textField.sizeToFit()
+        return textField
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -44,19 +56,15 @@ class StationsListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         stationsListViewModel.fetchStations { 
             self.stationsList.reloadData()
         }
     }
     
     func setUpViews() {
+        self.stationsList.register(UITableViewCell.self, forCellReuseIdentifier: stationsListCellIdentifier)
         navigationItem.titleView = self.searchBar
         view.backgroundColor = .white
-        self.stationsList.register(UITableViewCell.self, forCellReuseIdentifier: stationsListCellIdentifier)
-
-        //stationsList.dataSource = self
-        //stationsList.delegate = self
         view.addSubview(stationsList)
     }
     
@@ -75,6 +83,33 @@ class StationsListViewController: UIViewController {
             self.stationsList.reloadData()
             self.refreshControl.endRefreshing()
         }
+    }
+    
+    // Very ugly, i know. Just for testing.
+    func showAlerToEdit(_ text: String, at indexPath: IndexPath) {
+        let alert = UIAlertController(title: LocalizedAlert.alertTitle.rawValue.localizedString(),
+                                      message: "",
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: LocalizedAlert.cancelAction.rawValue.localizedString(),
+                                         style: .destructive) { (action) in }
+        let saveAction = UIAlertAction(title: LocalizedAlert.saveAction.rawValue.localizedString(), style: .default) { (action) in
+            guard let alertTextFields = alert.textFields,
+                let firstTextField = alertTextFields.first,
+                let stationName = firstTextField.text,
+                !stationName.isEmptyAndContainsNoWhitespace() else {
+                    return
+            }
+            self.stationsListViewModel.updateStation(name: stationName, at: indexPath)
+            self.stationsList.reloadRows(at: [indexPath], with: .left)
+        }
+        
+        alert.addTextField { (stationNameextField) in
+            stationNameextField.becomeFirstResponder()
+            stationNameextField.text = text
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -102,6 +137,11 @@ extension StationsListViewController: UITableViewDelegate {
         }
         self.stationsListViewModel.stations.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .right)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let stationName = self.stationsListViewModel.stations[indexPath.row].name
+        showAlerToEdit(stationName, at: indexPath)
     }
 }
 

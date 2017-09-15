@@ -11,7 +11,7 @@ import Foundation
 class Station: StationProtocol {
     
     let code: String
-    let name: String
+    var name: String
     let radius: Int
     let latitude: Double
     let longitude: Double
