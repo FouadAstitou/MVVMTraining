@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     private func setUpViews() {
         // Todo: Needs localization
-        title = "Home"
+        title = NSLocalizedString("Home", comment: "")
         view.backgroundColor = .white
         self.stationsButtonItem = UIBarButtonItem(title: "Stations", style: .plain, target: self, action: #selector(navigateToStationsListVC))
         self.navigationItem.rightBarButtonItem = self.stationsButtonItem

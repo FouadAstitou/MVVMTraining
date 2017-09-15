@@ -33,7 +33,7 @@ class StationsListViewController: UIViewController {
     }
     
     func setUpViews() {
-        // To do: Need to be ocalized
+        // To do: Needs to be ocalized
         title = "Stations"
         view.backgroundColor = .white
         stationsList.dataSource = self
