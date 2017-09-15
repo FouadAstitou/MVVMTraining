@@ -11,7 +11,7 @@ import Foundation
 class StationsListViewModel {
     
     var stations = [Station]() // Kleine opmerking hierover: Deze "var stations = [Station]()" is ook onderdeel van het protocol daardoor zou ik niet de extension maken die hieronder staat maar de extention verwijderen en de code hierin slepen.
-    
+    var filteredStations = [Station]()
 }
 
 extension StationsListViewModel: StationsListViewProtocol {
@@ -32,8 +32,12 @@ extension StationsListViewModel: StationsListViewProtocol {
         }
     }
     
-    func numberOfItemsToDisplay(in section: Int) -> Int {
-        return self.stations.count
+    func numberOfItemsToDisplay(in section: Int, searchIsActive: Bool) -> Int {
+        if searchIsActive {
+            return self.filteredStations.count
+        } else {
+            return self.stations.count
+        }
     }
     
     func stationNameToDisplay(for indexPath: IndexPath) -> String {
