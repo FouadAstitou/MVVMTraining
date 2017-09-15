@@ -6,6 +6,10 @@
   Copyright © 2017 Nerdvana. All rights reserved.
 */
 
+// Home screen
 "HomeScreen_Home" = "Thuis";
+"HomeScreen_Connected" = "Verbonden";
+"HomeScreen_Connecting" = "Verbinden...";
 
+// Stationslist screen
 "StationsListScreen_SearchStation" = "Zoek een treinstation";

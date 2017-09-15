@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum ConnectionState: String {
+    case connected = "HomeScreen_Connected"
+    case connecting = "HomeScreen_Connecting"
+}
+
 class HomeView: UIView {
     
     private let homeViewModel = HomeViewModel(home: Home(title: "NSMindfulNS", description: "Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor", isConnected: false))
@@ -34,13 +39,6 @@ class HomeView: UIView {
         return label
     }()
     
-    var showStationsButton: UIButton = {
-        let button = UIButton()
-        // Needs localization
-        button.setTitle("Show stations", for: .normal)
-        return button
-    }()
-    
     init() {
         super.init(frame: .zero)
         setUpViews()
@@ -54,12 +52,11 @@ class HomeView: UIView {
     func setUpViews() {
         self.titleLabel.text = self.homeViewModel.titleText
         self.descriptionLabel.text = self.homeViewModel.descriptionText
-        self.connectionStateLabel.text = self.homeViewModel.isConnectedStatus ? "Connected" : "Connecting ..." // Localize
+        self.connectionStateLabel.text = self.homeViewModel.isConnectedStatus ? ConnectionState.connected.rawValue.localizedString() : ConnectionState.connecting.rawValue.localizedString()
         
         self.addSubview(titleLabel)
         self.addSubview(descriptionLabel)
         self.addSubview(connectionStateLabel)
-        //self.descriptionLabel.addSubview(showStationsButton)
     }
     
     func setUpConstraints() {
@@ -87,10 +84,5 @@ class HomeView: UIView {
         
         self.connectionStateLabel.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
         self.connectionStateLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
-        
-        //self.showStationsButton.translatesAutoresizingMaskIntoConstraints = false
-        //self.showStationsButton.bottomAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: -8)
-       // self.showStationsButton.leadingAnchor.constraint(equalTo: self.descriptionLabel.leadingAnchor, constant: -8)
-        //self.showStationsButton.trailingAnchor.constraint(equalTo: self.descriptionLabel.trailingAnchor, constant: -8)
     }
 }

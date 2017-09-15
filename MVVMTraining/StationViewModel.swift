@@ -8,13 +8,11 @@
 
 import Foundation
 
-class StationsListViewModel {
+class StationsListViewModel: StationsListViewProtocol {
     
-    var stations = [Station]() // Kleine opmerking hierover: Deze "var stations = [Station]()" is ook onderdeel van het protocol daardoor zou ik niet de extension maken die hieronder staat maar de extention verwijderen en de code hierin slepen.
+    var stations = [Station]()
     var filteredStations = [Station]()
-}
-
-extension StationsListViewModel: StationsListViewProtocol {
+    
     func fetchStations(completion: @escaping () -> Void) {
         self.stations.removeAll()
         
@@ -46,5 +44,6 @@ extension StationsListViewModel: StationsListViewProtocol {
         return stationName
     }
 }
+
 
 

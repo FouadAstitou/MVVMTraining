@@ -11,6 +11,7 @@ import UIKit
 class StationsListViewController: UIViewController {
     
     var stationsListViewModel = StationsListViewModel()
+    let stationsListCellIdentifier = "StationsCell"
     var searchIsActive = false
     
     lazy var searchBar: UISearchBar = {
@@ -21,9 +22,10 @@ class StationsListViewController: UIViewController {
         return searchBar
     }()
     
-    var stationsList: UITableView = {
+    // Ask Ricardo if ther are any objections to using lazy here.
+    lazy var stationsList: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell") // Cell?? Origineel ;) probeer duidelijke namen te geven ipv cell. Wat voor een cell welke cell? StationsCell of Cell? Welke zie jij liever terug komen?
+        tableView.dataSource = self
         return tableView
     }()
     
@@ -42,11 +44,11 @@ class StationsListViewController: UIViewController {
     }
     
     func setUpViews() {
-        // To do: Need to be localized
-        title = "Stations"
         navigationItem.titleView = self.searchBar
         view.backgroundColor = .white
-        stationsList.dataSource = self
+        self.stationsList.register(UITableViewCell.self, forCellReuseIdentifier: stationsListCellIdentifier)
+
+        //stationsList.dataSource = self
         //stationsList.delegate = self
         view.addSubview(stationsList)
     }
@@ -68,10 +70,11 @@ extension StationsListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) // He weer die Cell??? Misschien moet je iets verzinnen op een String waarde die je 2 keer gebruikt en echt geen typo in mag zitten.
-        
-        cell.textLabel?.text = self.stationsListViewModel.stationNameToDisplay(for: indexPath) // Hier gebruik je cell.textLabel?.text dit betekend als cell.textLabel niet bestaat dat de app klapt. We hebben het maandag over ? en ! gehad toen wist je ook wat je hieraan moest doen. Je weet het dus ook doen ;)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: stationsListCellIdentifier, for: indexPath)
+        guard let textLabel = cell.textLabel else {
+            return cell
+        }
+        textLabel.text = self.stationsListViewModel.stationNameToDisplay(for: indexPath)
         return cell
     }
 }

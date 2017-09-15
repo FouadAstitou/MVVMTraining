@@ -37,10 +37,8 @@ class ViewController: UIViewController {
         self.homeView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -20).isActive = true
     }
     
-    func navigateToStationsListVC() { // als je je privates wil doortrekken moet deze ook private zijn.
-        print("Detected Tap") // Eentje over print. Gebruik debugPrint ipv print. DebugPrint komen niet terug in release builds...prints wel.
-        let stationsListVC = StationsListViewController() // Je hoeft hier niet een let te maken van de StationsListViewController deze kan je ook direct in de pushViewController aanmaken.
-        self.navigationController?.pushViewController(stationsListVC, animated: true)
+    @objc private func navigateToStationsListVC() { 
+        self.navigationController?.pushViewController(StationsListViewController(), animated: true)
     }
 }
 

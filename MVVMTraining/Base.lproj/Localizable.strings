@@ -6,10 +6,10 @@
   Copyright © 2017 Nerdvana. All rights reserved.
 */
 
-
 // Home screen.
-
 "HomeScreen_Home" = "Home";
+"HomeScreen_Connected" = "Connected";
+"HomeScreen_Connecting" = "Connecting...";
 
 // Stationslist screen.
 "StationsListScreen_SearchStation" = "Search for a trainstation";
