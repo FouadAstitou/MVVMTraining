@@ -11,6 +11,15 @@ import UIKit
 class StationsListViewController: UIViewController {
     
     var stationsListViewModel = StationsListViewModel()
+    var searchIsActive = false
+    
+    lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = NSLocalizedString("StationsListScreen_SearchStation", comment: "")
+        searchBar.sizeToFit()
+        searchBar.delegate = self
+        return searchBar
+    }()
     
     var stationsList: UITableView = {
         let tableView = UITableView()
@@ -33,8 +42,7 @@ class StationsListViewController: UIViewController {
     }
     
     func setUpViews() {
-        // To do: Needs to be ocalized
-        title = "Stations"
+        navigationItem.titleView = self.searchBar
         view.backgroundColor = .white
         stationsList.dataSource = self
         //stationsList.delegate = self
@@ -54,7 +62,7 @@ class StationsListViewController: UIViewController {
 
 extension StationsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.stationsListViewModel.numberOfItemsToDisplay(in: section)
+        return self.stationsListViewModel.numberOfItemsToDisplay(in: section, searchIsActive: self.searchIsActive)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,5 +70,31 @@ extension StationsListViewController: UITableViewDataSource {
         cell.textLabel?.text = self.stationsListViewModel.stationNameToDisplay(for: indexPath)
         
         return cell
+    }
+}
+
+extension StationsListViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchIsActive = true
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let stations = self.stationsListViewModel.stations
+        self.stationsListViewModel.filteredStations = stations.filter({ (station: Station) -> Bool in
+            return station.name.contains(searchText.lowercased())
+        })
+        if !searchText.isEmptyAndContainsNoWhitespace() {
+            self.searchIsActive = true
+            self.stationsList.reloadData()
+        } else {
+            self.stationsListViewModel.filteredStations.removeAll()
+            self.searchIsActive = false
+            self.stationsList.reloadData()
+        }
+        
+        print(stationsListViewModel.stations.count)
+        print(stations.count)
+        print(stationsListViewModel.filteredStations.count)
+
     }
 }

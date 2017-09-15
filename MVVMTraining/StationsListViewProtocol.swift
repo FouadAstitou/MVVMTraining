@@ -11,8 +11,9 @@ import Foundation
 protocol StationsListViewProtocol {
     
     var stations: [Station] { get }
+    var filteredStations: [Station] { get }
     
     func fetchStations(completion: @escaping () -> Void)
-    func numberOfItemsToDisplay(in section: Int) -> Int
+    func numberOfItemsToDisplay(in section: Int, searchIsActive: Bool) -> Int
     func stationNameToDisplay(for indexPath: IndexPath) -> String
 }
