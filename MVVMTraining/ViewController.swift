@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     private let homeView = HomeView()
     
     var stationsButtonItem = UIBarButtonItem()
@@ -21,7 +20,6 @@ class ViewController: UIViewController {
     }
     
     private func setUpViews() {
-        // Todo: Needs localization
         title = NSLocalizedString("Home", comment: "")
         view.backgroundColor = .white
         self.stationsButtonItem = UIBarButtonItem(title: "Stations", style: .plain, target: self, action: #selector(navigateToStationsListVC))
