@@ -13,7 +13,6 @@
 
 // Stationslist screen
 "StationsListScreen_SearchStation" = "Zoek een treinstation";
-"StationsListScreen_SearchStation" = "Search for a trainstation";
 "StationsListScreen_Alert_Title" = "Wijzig naam";
 "StationsListScreen_Save_Title" = "Opslaan";
 "StationsListScreen_Cancel_Title" = "Annuleren";

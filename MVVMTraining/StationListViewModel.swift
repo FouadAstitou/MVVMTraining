@@ -11,6 +11,7 @@ import Foundation
 class StationsListViewModel: StationsListViewProtocol {
     
     var stations = [Station]()
+    var stationsFromDatabase = [Station]()
     var filteredStations = [Station]()
     var searchIsActive = false
     
@@ -22,9 +23,11 @@ class StationsListViewModel: StationsListViewProtocol {
                 switch result {
                 case let .success(stations):
                     self.stations.append(contentsOf: stations)
+                    self.stationsFromDatabase.append(contentsOf: stations)
                 case let .failure(error):
                     print("Error fetching stations. Error: \(error)")
                     self.stations.removeAll()
+                    self.stationsFromDatabase.removeAll()
                 }
                 completion()
             }

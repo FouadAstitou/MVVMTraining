@@ -13,7 +13,7 @@
 		A4B5ACA61F6A5C1300115700 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACA51F6A5C1300115700 /* Station.swift */; };
 		A4B5ACA81F6A5D8000115700 /* StationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACA71F6A5D8000115700 /* StationProtocol.swift */; };
 		A4B5ACAA1F6A5F3E00115700 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACA91F6A5F3E00115700 /* DataManager.swift */; };
-		A4B5ACAD1F6A825400115700 /* StationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACAC1F6A825400115700 /* StationViewModel.swift */; };
+		A4B5ACAD1F6A825400115700 /* StationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACAC1F6A825400115700 /* StationListViewModel.swift */; };
 		A4B5ACAF1F6A835600115700 /* StationsListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACAE1F6A835600115700 /* StationsListViewProtocol.swift */; };
 		A4B5ACB41F6B8D3300115700 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4B5ACB61F6B8D3300115700 /* Localizable.strings */; };
 		A4B5ACBA1F6BA06100115700 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5ACB91F6BA06100115700 /* String.swift */; };
@@ -33,7 +33,7 @@
 		A4B5ACA51F6A5C1300115700 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		A4B5ACA71F6A5D8000115700 /* StationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationProtocol.swift; sourceTree = "<group>"; };
 		A4B5ACA91F6A5F3E00115700 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = API/DataManager.swift; sourceTree = "<group>"; };
-		A4B5ACAC1F6A825400115700 /* StationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
+		A4B5ACAC1F6A825400115700 /* StationListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationListViewModel.swift; sourceTree = "<group>"; };
 		A4B5ACAE1F6A835600115700 /* StationsListViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsListViewProtocol.swift; sourceTree = "<group>"; };
 		A4B5ACB01F6B8BD400115700 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A4B5ACB51F6B8D3300115700 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		A4B5ACBD1F6BA22D00115700 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A4B5ACAC1F6A825400115700 /* StationViewModel.swift */,
+				A4B5ACAC1F6A825400115700 /* StationListViewModel.swift */,
 				A4B5ACAE1F6A835600115700 /* StationsListViewProtocol.swift */,
 			);
 			name = ViewModels;
@@ -276,7 +276,7 @@
 				A4B5ACA61F6A5C1300115700 /* Station.swift in Sources */,
 				A4FE49C01F692F540021E96E /* HomeView.swift in Sources */,
 				A4B5ACBA1F6BA06100115700 /* String.swift in Sources */,
-				A4B5ACAD1F6A825400115700 /* StationViewModel.swift in Sources */,
+				A4B5ACAD1F6A825400115700 /* StationListViewModel.swift in Sources */,
 				A4FE49AC1F69288B0021E96E /* AppDelegate.swift in Sources */,
 				A4B5ACA81F6A5D8000115700 /* StationProtocol.swift in Sources */,
 				A4FE49C21F6931E00021E96E /* HomeViewModel.swift in Sources */,
